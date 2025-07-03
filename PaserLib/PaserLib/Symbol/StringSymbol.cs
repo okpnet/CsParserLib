@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace PaserLib.Symbol
 {
-    public class OpenSymbolr(char value) : SymbolBase(value), IOpenSymbol
+    public class StringSymbol(char value,bool isClose) : SymbolBase(value), IStringSymbol
     {
+        public bool IsClose { get; }=isClose;
+
     }
 }

@@ -21,5 +21,7 @@ namespace PaserLib.Symbol.Core
         char[] Literal { get; }
 
         char[] Separate { get; }
+
+        char[] Strings { get; }
     }
 }

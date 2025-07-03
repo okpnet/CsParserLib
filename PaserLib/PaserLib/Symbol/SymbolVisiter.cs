@@ -30,12 +30,21 @@ namespace PaserLib.Symbol
                     continue;
                 }
 
-                if(_symbolModel.Escapes.Contains(current) && 
-                switch (current)
+                if (_symbolModel.Escapes.Contains(current) && queee is not IEscapeSymbol)
                 {
-                    case _symbolModel.Separate(current):
-                        break;
+                    list.Enqueue(new EscapeSymbol(current));
+                    continue;
                 }
+
+                if (_symbolModel.Strings.Contains(current) && queee is not EscapeSymbol )
+                {
+                    list.Enqueue(new StringSymbol(current,list.LastOrDefault(t => t is IStringSymbol) is IStringSymbol stringSymbol && !stringSymbol.IsClose));
+                    continue;
+                }
+
+                if(_symbolModel.Opens.Contains(current) && 
+
+
                 var current = Walk(enumrator);
                 if (current == null)
                     continue;
